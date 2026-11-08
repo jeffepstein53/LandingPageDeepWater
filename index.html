@@ -273,12 +273,79 @@ footer p.small{flex-basis:100%;max-width:70ch;font:400 .75rem/1.6 var(--f-mono);
 }
 @media (max-width:480px){.nav-cta{display:none}}
 
+/* navigation links */
+.nav-links{display:flex;gap:26px;font:400 .78rem/1 var(--f-mono);letter-spacing:.06em}
+.nav-links a{color:var(--text-secondary);text-decoration:none;padding:8px 2px;transition:color .3s var(--ease)}
+.nav-links a:hover{color:var(--text-primary)}
+@media (max-width:1000px){.nav-links{display:none}}
+
+/* the tour: fourteen tabs */
+.tour{padding:clamp(70px,10vw,130px) 0}
+.tour h2{margin:14px 0 18px;max-width:22ch}
+.tourbox{display:grid;grid-template-columns:minmax(210px,.42fr) minmax(0,1fr);gap:clamp(20px,4vw,48px);margin-top:44px;align-items:start}
+.tabs{display:flex;flex-direction:column;border-left:1px solid var(--line);min-width:0}
+.tabs .grp{font:400 .68rem/1 var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--text-secondary);padding:20px 0 8px 16px}
+.tabs .grp:first-child{padding-top:4px}
+.tabs button{all:unset;box-sizing:border-box;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 12px 10px 16px;margin-left:-1px;border-left:2px solid transparent;color:var(--text-secondary);font:400 1.02rem/1.3 var(--f-display);transition:color .3s var(--ease),border-color .3s var(--ease),background .3s var(--ease)}
+.tabs button:hover{color:var(--text-primary)}
+.tabs button[aria-selected=true]{color:var(--text-primary);border-left-color:var(--accent);background:linear-gradient(90deg,var(--accent-muted),transparent)}
+.tabs button:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
+.tg{font:400 .62rem/1 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:#04161a;background:var(--coral);border-radius:999px;padding:4px 8px;white-space:nowrap}
+.pane{background:var(--panel);border:1px solid var(--line);border-radius:22px;overflow:hidden;min-width:0}
+.pane:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.pv{position:relative;aspect-ratio:2/1;background:linear-gradient(180deg,#10273a,#0b1a23);border-bottom:1px solid var(--line)}
+.pv svg{position:absolute;inset:0;width:100%;height:100%}
+.pt{padding:26px 28px 30px}
+.pt.swap{animation:fadeUp .45s var(--ease)}
+.pt h3{margin:10px 0 10px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.pt p.pp{color:var(--text-primary);max-width:50ch}
+.pt ul{margin:18px 0 0;padding:0;list-style:none;display:grid;gap:10px}
+.pt li{position:relative;padding-left:20px;color:var(--text-secondary);max-width:58ch}
+.pt li::before{content:"";position:absolute;left:0;top:.8em;width:8px;height:1px;background:var(--accent)}
+
+/* freshness, on the data section */
+.fresh{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;max-width:960px;margin:56px auto 0;padding:0;list-style:none;text-align:left}
+.fresh li{border-top:1px solid var(--line);padding-top:18px}
+.fresh h3{font:500 1.05rem/1.3 var(--f-display);letter-spacing:-.01em;margin-bottom:8px}
+.fresh p{color:var(--text-secondary);font-size:.96rem}
+
+/* on your computer */
+.poste{padding:clamp(70px,10vw,130px) 0}
+.poste h2{margin:14px 0 0;max-width:22ch}
+.cells{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 clamp(20px,3vw,40px);margin:48px 0 0;padding:0;list-style:none}
+.cells li{padding:26px 0 30px;border-top:1px solid var(--line)}
+.cells h3{font:500 1.15rem/1.3 var(--f-display);letter-spacing:-.01em;margin-bottom:8px}
+.cells p{color:var(--text-secondary);font-size:.98rem;max-width:34ch}
+
+/* under the hood */
+.codes{padding:clamp(70px,10vw,130px) 0}
+.codes .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,5vw,72px);align-items:start}
+.codes h2{margin:14px 0 18px}
+.codes p.d{color:var(--text-secondary);max-width:48ch}
+.codes .act{margin-top:26px}
+.stk{margin:0;padding:0;list-style:none}
+.stk li{display:flex;align-items:baseline;justify-content:space-between;gap:16px;padding:20px 0;border-top:1px solid var(--line)}
+.stk li:last-child{border-bottom:1px solid var(--line)}
+.stk b{font:300 clamp(1.4rem,2.6vw,1.95rem)/1 var(--f-display);letter-spacing:-.02em;white-space:nowrap}
+.stk span{font:400 .78rem/1.4 var(--f-mono);letter-spacing:.06em;color:var(--text-secondary);text-align:right;max-width:36ch}
+@media (pointer:coarse){.tabs button{min-height:44px}}
+@media (max-width:860px){
+  .tourbox{grid-template-columns:minmax(0,1fr)}
+  .tabs{flex-direction:row;overflow-x:auto;border-left:0;gap:8px;padding-bottom:12px;scrollbar-width:thin}
+  .tabs .grp{display:none}
+  .tabs button{flex:none;border:1px solid var(--line-strong);border-radius:999px;padding:9px 15px;margin:0;font-size:.92rem}
+  .tabs button[aria-selected=true]{border-color:var(--accent);background:var(--accent-muted)}
+  .fresh,.cells{grid-template-columns:minmax(0,1fr)}
+  .codes .wrap{grid-template-columns:minmax(0,1fr)}
+  .pt{padding:22px 20px 26px}
+}
+
 /* reduced motion: final states, nothing moving */
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{transition-duration:.001ms!important;transition-delay:0s!important;scroll-behavior:auto!important}
   .loop,.orb,.cue i{animation:none!important}
   .gl,.rim,.hero h1 .w{animation-duration:.001ms!important;animation-delay:0s!important}
-  .ans{animation:none}
+  .ans,.pt.swap{animation:none}
   .js .sec .rv{opacity:1!important;transform:none!important}
   .arc,.sl{stroke-dashoffset:0!important}
   .ring{display:none}
@@ -292,6 +359,13 @@ footer p.small{flex-basis:100%;max-width:70ch;font:400 .75rem/1.6 var(--f-mono);
 
 <header class="nav" id="nav">
   <a class="brand" href="#top" aria-label="DeepWater"><img src="assets/logo.svg" alt="" width="34" height="34"><span>DeepWater</span></a>
+  <nav class="nav-links" aria-label="Sections">
+    <a href="#dive" data-i18n="nl.1">Plongée</a>
+    <a href="#tour" data-i18n="nl.2">Onglets</a>
+    <a href="#sources" data-i18n="nl.3">Données</a>
+    <a href="#ai" data-i18n="nl.4">IA</a>
+    <a href="#faq" data-i18n="nl.5">Questions</a>
+  </nav>
   <div class="nav-r">
     <div class="lang" role="group" aria-label="Langue / Language">
       <button type="button" data-l="fr" aria-pressed="true">FR</button>
@@ -412,6 +486,23 @@ footer p.small{flex-basis:100%;max-width:70ch;font:400 .75rem/1.6 var(--f-mono);
   </div>
 </section>
 
+<!-- 3b. Les quatorze onglets -->
+<section class="tour sec" id="tour" aria-labelledby="tour-h">
+  <div class="wrap">
+    <p class="kicker rv" style="--i:0" data-i18n="t.k">Les quatorze onglets</p>
+    <h2 class="rv" style="--i:1" id="tour-h" data-i18n="t.h">Tout DeepWater, onglet par onglet.</h2>
+    <p class="lede rv" style="--i:2" data-i18n="t.p">Chaque onglet a sa profondeur : à la surface ce qui bouge, au milieu ce qui explique, au fond ce qui est à toi ou à la source.</p>
+    <div class="tourbox rv" style="--i:3">
+      <div class="tabs" id="tabs" role="tablist" aria-orientation="vertical" aria-label="Onglets de DeepWater"></div>
+      <div class="pane" id="pane" role="tabpanel" tabindex="0" aria-live="polite">
+        <div class="pv" aria-hidden="true"><svg id="pv" viewBox="0 0 480 240"></svg></div>
+        <div class="pt" id="pt"></div>
+      </div>
+    </div>
+    <noscript><ul><li>Vue d’ensemble</li><li>Forex</li><li>Calendrier</li><li>News</li><li>Carte</li><li>Économie</li><li>Research</li><li>Quant</li><li>Desk</li><li>Graphiques</li><li>Journal</li><li>Comptes</li><li>IA</li><li>Sources</li></ul></noscript>
+  </div>
+</section>
+
 <!-- 4. Le globe -->
 <section class="world sec" id="world" aria-labelledby="world-h">
   <div class="wrap">
@@ -445,6 +536,11 @@ footer p.small{flex-basis:100%;max-width:70ch;font:400 .75rem/1.6 var(--f-mono);
       <p class="sideL rv" style="--i:3" data-i18n="o.p1">DeepWater lit des organismes publics. Une page entière montre l’état de chaque source, la teste d’un clic et la coupe d’un interrupteur.</p>
       <p class="sideR rv" style="--i:4" data-i18n="o.p2">Quand deux sources parlent du même chiffre, il les compare, fusionne leurs séries et garde la source de chaque point.</p>
     </div>
+    <ul class="fresh">
+      <li class="rv" style="--i:5"><h3 data-i18n="o.f1h">Une seule horloge</h3><p data-i18n="o.f1p">Un planificateur interroge chaque jeu de données, au plus une source toutes les deux secondes, quelle que soit la page ouverte.</p></li>
+      <li class="rv" style="--i:6"><h3 data-i18n="o.f2h">L’heure des chiffres</h3><p data-i18n="o.f2p">Quand un chiffre doit sortir, DeepWater interroge le calendrier toutes les 10 secondes pour les publications à fort impact, puis relit les données concernées après 2, 10 et 60 minutes et 3 heures.</p></li>
+      <li class="rv" style="--i:7"><h3 data-i18n="o.f3h">Une vérification gratuite</h3><p data-i18n="o.f3p">Quand une source le permet, DeepWater demande seulement si la réponse a changé : une réponse inchangée ne coûte ni téléchargement ni redessin.</p></li>
+    </ul>
   </div>
 </section>
 
@@ -461,6 +557,39 @@ footer p.small{flex-basis:100%;max-width:70ch;font:400 .75rem/1.6 var(--f-mono);
       <li class="step rv" style="--i:4"><span class="n">02</span><h3 data-i18n="a.s2h">Le modèle demande une donnée</h3><p data-i18n="a.s2p">Il l’écrit comme un appel d’outil. Il ne peut rien lire lui-même.</p></li>
       <li class="step rv" style="--i:5"><span class="n">03</span><h3 data-i18n="a.s3h">DeepWater vérifie, lit, répond</h3><p data-i18n="a.s3p">L’app contrôle le droit à chaque appel et lit la donnée, puis le modèle répond.</p></li>
     </ol>
+  </div>
+</section>
+
+<!-- 6b. Sur ton ordinateur -->
+<section class="poste sec" id="poste" aria-labelledby="poste-h">
+  <div class="wrap">
+    <p class="kicker rv" style="--i:0" data-i18n="p.k">Sur ton ordinateur</p>
+    <h2 class="rv" style="--i:1" id="poste-h" data-i18n="p.h">Une application, pas un onglet de navigateur.</h2>
+    <ul class="cells">
+      <li class="rv" style="--i:2"><h3 data-i18n="p.1h">Mac et Windows 11</h3><p data-i18n="p.1p">Une application native, installée chez toi.</p></li>
+      <li class="rv" style="--i:3"><h3 data-i18n="p.2h">Neuf thèmes</h3><p data-i18n="p.2p">Six sombres et trois clairs.</p></li>
+      <li class="rv" style="--i:4"><h3 data-i18n="p.3h">Français et anglais</h3><p data-i18n="p.3p">Toute l’interface est traduite, l’aide aussi.</p></li>
+      <li class="rv" style="--i:5"><h3 data-i18n="p.4h">Une taille à toi</h3><p data-i18n="p.4p">De 80 à 175 %, et la fenêtre s’adapte dès 960 par 540 pixels.</p></li>
+      <li class="rv" style="--i:6"><h3 data-i18n="p.5h">Une aide intégrée</h3><p data-i18n="p.5p">Touche F1 : un chapitre par page, avec une recherche.</p></li>
+      <li class="rv" style="--i:7"><h3 data-i18n="p.6h">Mises à jour</h3><p data-i18n="p.6p">Une icône prévient d’une nouvelle version. Sur Mac, elle s’installe depuis l’app. Sous Windows, tu télécharges l’installateur.</p></li>
+    </ul>
+  </div>
+</section>
+
+<!-- 6c. Sous le capot -->
+<section class="codes sec" id="code" aria-labelledby="code-h">
+  <div class="wrap">
+    <div>
+      <p class="kicker rv" style="--i:0" data-i18n="c.k">Sous le capot</p>
+      <h2 class="rv" style="--i:1" id="code-h" data-i18n="c.h">Du code qu’on peut lire.</h2>
+      <p class="d rv" style="--i:2" data-i18n="c.p">Le code de DeepWater est public sur GitHub. C’est une application Qt 6 en C++20, d’environ 140 000 lignes, avec seize programmes de test pour ses moteurs : graphiques, modèles de Markov, fusion de données, planificateur, ordres, mises à jour.</p>
+      <div class="act rv" style="--i:3"><a class="link" href="https://github.com/jeffepstein53/DeepWater" data-i18n="c.a">Lire le code sur GitHub</a></div>
+    </div>
+    <ul class="stk rv" style="--i:2">
+      <li><b>Qt 6 · C++20</b><span data-i18n="c.s1">une application native</span></li>
+      <li><b>16</b><span data-i18n="c.s2">programmes de test</span></li>
+      <li><b data-i18n="c.s3b">Mac · Windows</b><span data-i18n="c.s3">construits automatiquement à chaque changement du code</span></li>
+    </ul>
   </div>
 </section>
 
@@ -492,6 +621,8 @@ footer p.small{flex-basis:100%;max-width:70ch;font:400 .75rem/1.6 var(--f-mono);
       <details><summary data-i18n="q4">Sur quels ordinateurs ça marche&nbsp;?</summary><div class="ans" data-i18n="a4">Sur Mac et sur Windows 11. Sur Mac, les mises à jour s’installent depuis l’app. Sous Windows, tu télécharges le nouvel installateur.</div></details>
       <details><summary data-i18n="q5">Faut-il savoir coder&nbsp;?</summary><div class="ans" data-i18n="a5">Non. On installe l’application et on l’ouvre. Le code est public sur GitHub, pour qui veut regarder dedans.</div></details>
       <details><summary data-i18n="q6">Est-ce un conseil en investissement&nbsp;?</summary><div class="ans" data-i18n="a6">Non. DeepWater montre des données et des lectures automatiques. Les estimations faites par l’app sont signalées comme telles.</div></details>
+      <details><summary data-i18n="q7">Puis-je brancher mon compte de trading&nbsp;?</summary><div class="ans" data-i18n="a7">Le Journal importe tes relevés (MetaTrader, cTrader, CSV) sans mot de passe. L’onglet Comptes, qui envoie un ordre sur plusieurs comptes via MetaCopier, est en test : commence par un compte de démonstration.</div></details>
+      <details><summary data-i18n="q8">L’IA peut-elle passer des ordres&nbsp;?</summary><div class="ans" data-i18n="a8">Seulement sur le compte de paper trading, qui est simulé. Aucun outil de l’IA n’envoie d’ordre réel.</div></details>
     </div>
   </div>
 </section>
@@ -581,7 +712,25 @@ var EN={
  'a6':'No. DeepWater shows data and automatic readings. Estimates made by the app are labelled as such.',
  'z.h':'Ready to go down?','z.p':'Download DeepWater and open the globe. The rest is further down.','z.meta':'macOS · Windows 11 · Version 0.1',
  'ft.a':'Code on GitHub',
- 'ft.n':'The previews on this page are drawings, not screenshots. DeepWater does not give investment advice.'
+ 'ft.n':'The previews on this page are drawings, not screenshots. DeepWater does not give investment advice.',
+ 'nl.1':'Dive','nl.2':'Tabs','nl.3':'Data','nl.4':'AI','nl.5':'Questions',
+ 't.k':'The fourteen tabs','t.h':'All of DeepWater, tab by tab.',
+ 't.p':'Each tab has its depth: on the surface what moves, in the middle what explains, at the floor what is yours or at the source.',
+ 'o.f1h':'One clock','o.f1p':'A scheduler asks for each data set, one source every two seconds at most, whichever page is open.',
+ 'o.f2h':'The hour of the figures','o.f2p':'When a figure is due, DeepWater asks the calendar every 10 seconds for high-impact releases, then reads the data concerned again after 2, 10 and 60 minutes and 3 hours.',
+ 'o.f3h':'A free check','o.f3p':'When a source allows it, DeepWater only asks whether the answer changed: an unchanged answer costs no download and no redraw.',
+ 'p.k':'On your computer','p.h':'An app, not a browser tab.',
+ 'p.1h':'Mac and Windows 11','p.1p':'A native app, installed on your machine.',
+ 'p.2h':'Nine themes','p.2p':'Six dark and three light.',
+ 'p.3h':'French and English','p.3p':'The whole interface is translated, help included.',
+ 'p.4h':'A size of your own','p.4p':'From 80 to 175 %, and the window fits from 960 by 540 pixels.',
+ 'p.5h':'Built-in help','p.5p':'Press F1: one chapter per page, with a search.',
+ 'p.6h':'Updates','p.6p':'An icon tells you about a new version. On Mac it installs from the app. On Windows you download the installer.',
+ 'c.k':'Under the hood','c.h':'Code you can read.',
+ 'c.p':'DeepWater’s code is public on GitHub. It is a Qt 6 app in C++20, about 140,000 lines, with sixteen test programs for its engines: charts, Markov models, data fusion, scheduler, orders, updates.',
+ 'c.a':'Read the code on GitHub','c.s1':'a native app','c.s2':'test programs','c.s3b':'Mac · Windows','c.s3':'built automatically on every code change',
+ 'q7':'Can I connect my trading account?','a7':'The Journal imports your statements (MetaTrader, cTrader, CSV) with no password. The Accounts tab, which sends one order to several accounts through MetaCopier, is in testing: start with a demo account.',
+ 'q8':'Can the AI place orders?','a8':'Only on the paper trading account, which is simulated. No AI tool sends a real order.'
 };
 var H1={fr:['Les','marchés','ont','un','fond.','Descends-y.*'],en:['Markets','have','a','floor.','Go down to it.*']};
 var SRC={
@@ -614,6 +763,7 @@ function setLang(l,save){
   renderH1(l);renderSources(l);
   $$('.num').forEach(function(n){n.textContent=fmt(Number(n.getAttribute('data-to')))});
   lastDepthTxt='';lastTagTxt='';updateLayerLabels();paintDive(true);
+  if(tourReady)renderTour();
   if(save){try{localStorage.setItem(SK,l)}catch(e){}}
 }
 function fmt(n){return n.toLocaleString(lang==='en'?'en-US':'fr-FR')}
@@ -807,8 +957,149 @@ function buildMap(){
   $('#map').innerHTML=s;
 }
 
+/* ---------- the tour: fourteen tabs ---------- */
+var tourReady=false,curTab=0;
+var tabsEl=$('#tabs'),paneEl=$('#pane'),ptEl=$('#pt'),pvEl=$('#pv');
+var MOTIF={
+  bars:function(){var r=rng(3),s='',i,a=[],b=[],y=120,y2=100;
+    for(i=0;i<=40;i++){y+=(r()-.55)*9;y=Math.max(40,Math.min(130,y));a.push([20+i*11,y]);y2+=(r()-.5)*7;y2=Math.max(50,Math.min(130,y2));b.push([20+i*11,y2])}
+    s+='<path d="'+pathOf(a)+'L460 150L20 150Z" fill="#6fe0d6" fill-opacity=".12"/><path d="'+pathOf(b)+'" fill="none" stroke="#4a7a8a" stroke-width="1.5"/><path d="'+pathOf(a)+'" fill="none" stroke="#6fe0d6" stroke-width="2.2"/>';
+    for(i=0;i<11;i++){var h=14+r()*44,up=r()>.35;s+='<rect x="'+(20+i*40)+'" y="'+(214-h).toFixed(1)+'" width="26" height="'+h.toFixed(1)+'" rx="4" fill="'+(up?'#6fe0d6':'#ee8a6a')+'" fill-opacity="'+(up?.7:.8)+'"/>'}
+    return s},
+  globe:function(){var s='<circle cx="240" cy="120" r="98" fill="#6fe0d6" fill-opacity=".06"/><circle cx="240" cy="120" r="84" fill="#0b2a35" stroke="#6fe0d6" stroke-width="2"/><g fill="none" stroke="#6fe0d6" stroke-opacity=".4" stroke-width="1.4"><ellipse cx="240" cy="120" rx="30" ry="84"/><ellipse cx="240" cy="120" rx="60" ry="84"/><line x1="240" y1="36" x2="240" y2="204"/><ellipse cx="240" cy="78" rx="76" ry="14"/><ellipse cx="240" cy="120" rx="84" ry="16"/><ellipse cx="240" cy="162" rx="76" ry="14"/></g>';
+    s+='<path d="M170 140Q240 40 322 100" fill="none" stroke="#6fe0d6" stroke-width="2"/><path d="M196 168Q270 120 300 150" fill="none" stroke="#6fe0d6" stroke-width="1.6" stroke-opacity=".7"/>';
+    [[170,140],[322,100],[196,168],[300,150]].forEach(function(p){s+='<circle cx="'+p[0]+'" cy="'+p[1]+'" r="3.8" fill="#e4f2f4"/>'});
+    s+='<ellipse cx="240" cy="120" rx="140" ry="34" fill="none" stroke="#4a7a8a" stroke-opacity=".5" stroke-width="1.2" transform="rotate(-18 240 120)"/>';
+    return s},
+  dots:function(){var r=rng(21),s='',i,j;
+    for(j=0;j<5;j++)for(i=0;i<18;i++){var v=.14+.8*Math.pow(.5+.5*Math.sin(i*.6+j*1.5+r()),1.6);s+='<circle cx="'+(34+i*24)+'" cy="'+(34+j*22)+'" r="7" fill="'+(r()>.92?'#ee8a6a':'#6fe0d6')+'" fill-opacity="'+v.toFixed(2)+'"/>'}
+    s+='<line x1="30" x2="450" y1="214" y2="214" stroke="#1d3a46"/><path d="M30 206C110 196 170 182 240 176S380 160 450 150" fill="none" stroke="#6fe0d6" stroke-width="2.2"/>';
+    return s},
+  pairs:function(){var r=rng(9),s='',i,j;
+    for(j=0;j<6;j++)for(i=0;i<6;i++){var v=i===j?1:Math.round((r()*2-.7)*100)/100;s+='<rect x="'+(130+i*34)+'" y="'+(18+j*34)+'" width="30" height="30" rx="6" fill="'+(v>=0?'#6fe0d6':'#ee8a6a')+'" fill-opacity="'+(.12+.8*Math.abs(v)).toFixed(2)+'"/>'}
+    return s},
+  candles:function(){var r=rng(11),s='',i,p=110;
+    for(i=0;i<34;i++){var o=p,c=Math.max(40,Math.min(150,p+(r()-.5)*26)),hi=Math.max(o,c)+r()*9,lo=Math.min(o,c)-r()*9,x=24+i*10.5,col=c<=o?'#6fe0d6':'#ee8a6a',vh=6+r()*26;p=c;
+      s+='<line x1="'+x+'" x2="'+x+'" y1="'+hi.toFixed(1)+'" y2="'+lo.toFixed(1)+'" stroke="'+col+'" stroke-width="1.4"/><rect x="'+(x-3.2)+'" y="'+Math.min(o,c).toFixed(1)+'" width="6.4" height="'+Math.max(2,Math.abs(o-c)).toFixed(1)+'" fill="'+col+'"/><rect x="'+(x-3.2)+'" y="'+(228-vh).toFixed(1)+'" width="6.4" height="'+vh.toFixed(1)+'" fill="'+col+'" fill-opacity=".35"/>'}
+    for(i=0;i<6;i++){for(var j=0;j<14;j++){s+='<rect x="'+(390+i*11)+'" y="'+(20+j*10)+'" width="10" height="9" fill="#6fe0d6" fill-opacity="'+(Math.pow(r(),3)*.9).toFixed(2)+'"/>'}}
+    return s},
+  calendar:function(){var r=rng(5),s='',i;
+    for(i=0;i<6;i++){var y=22+i*34;s+='<rect x="30" y="'+y+'" width="420" height="28" rx="8" fill="#0e1f28" stroke="#1d3a46"/><circle cx="48" cy="'+(y+14)+'" r="4" fill="'+(i%3===0?'#ee8a6a':'#6fe0d6')+'" fill-opacity="'+(i%3===0?.9:.55)+'"/><rect x="64" y="'+(y+10)+'" width="'+(70+r()*60).toFixed(0)+'" height="7" rx="3.5" fill="#2a4a58"/><rect x="300" y="'+(y+10)+'" width="'+(24+r()*30).toFixed(0)+'" height="7" rx="3.5" fill="#4a7a8a"/><rect x="380" y="'+(y+8)+'" width="'+(30+r()*28).toFixed(0)+'" height="12" rx="6" fill="'+(r()>.5?'#6fe0d6':'#ee8a6a')+'" fill-opacity=".75"/>'}
+    return s},
+  news:function(){var s='',i;
+    for(i=0;i<4;i++){var x=30+(i%2)*220,y=22+Math.floor(i/2)*104;s+='<rect x="'+x+'" y="'+y+'" width="200" height="92" rx="12" fill="#0e1f28" stroke="#1d3a46"/><rect x="'+(x+14)+'" y="'+(y+14)+'" width="'+(100+(i*17)%60)+'" height="8" rx="4" fill="#e4f2f4" fill-opacity=".8"/><rect x="'+(x+14)+'" y="'+(y+30)+'" width="150" height="6" rx="3" fill="#2a4a58"/><rect x="'+(x+14)+'" y="'+(y+44)+'" width="120" height="6" rx="3" fill="#2a4a58"/><rect x="'+(x+14)+'" y="'+(y+68)+'" width="34" height="12" rx="6" fill="#6fe0d6" fill-opacity=".55"/>'}
+    return s},
+  doc:function(){var r=rng(17),s='',i;
+    for(i=0;i<5;i++){var h1=40+r()*70,h2=24+r()*50;s+='<rect x="'+(40+i*52)+'" y="'+(200-h1).toFixed(1)+'" width="20" height="'+h1.toFixed(1)+'" rx="4" fill="#6fe0d6" fill-opacity=".8"/><rect x="'+(62+i*52)+'" y="'+(200-h2).toFixed(1)+'" width="20" height="'+h2.toFixed(1)+'" rx="4" fill="#4a7a8a"/>'}
+    s+='<line x1="30" x2="310" y1="202" y2="202" stroke="#1d3a46"/><circle cx="390" cy="104" r="56" fill="none" stroke="#1d3a46" stroke-width="12"/><circle cx="390" cy="104" r="56" fill="none" stroke="#6fe0d6" stroke-width="12" stroke-linecap="round" stroke-dasharray="230 352" transform="rotate(-90 390 104)"/>';
+    return s},
+  curve:function(){var r=rng(23),s='',i;
+    for(i=0;i<46;i++){var x=40+r()*260,y=190-(x-40)*.55+(r()-.5)*54;s+='<circle cx="'+x.toFixed(1)+'" cy="'+Math.max(30,Math.min(206,y)).toFixed(1)+'" r="3.4" fill="#6fe0d6" fill-opacity=".7"/>'}
+    s+='<line x1="36" y1="196" x2="306" y2="48" stroke="#e4f2f4" stroke-width="1.6" stroke-dasharray="5 4"/>';
+    for(i=0;i<9;i++){var h=10+Math.exp(-Math.pow((i-4)/2.2,2))*90*(.8+r()*.3);s+='<rect x="'+(340+i*13)+'" y="'+(206-h).toFixed(1)+'" width="10" height="'+h.toFixed(1)+'" rx="2" fill="#4a7a8a"/>'}
+    return s},
+  desk:function(){var r=rng(31),s='',i,k;
+    for(i=0;i<16;i++){var x=30+(i%4)*108,y=18+Math.floor(i/4)*54,pts=[],yy=24;for(k=0;k<=7;k++){yy+=(r()-.5)*12;yy=Math.max(8,Math.min(34,yy));pts.push([x+12+k*11,y+yy+4])}
+      s+='<rect x="'+x+'" y="'+y+'" width="98" height="46" rx="10" fill="#0e1f28" stroke="#1d3a46"/><circle cx="'+(x+14)+'" cy="'+(y+12)+'" r="3.2" fill="'+(r()>.7?'#ee8a6a':'#6fe0d6')+'"/><path d="'+pathOf(pts)+'" fill="none" stroke="#93b2bb" stroke-width="1.3"/>'}
+    return s},
+  journal:function(){var r=rng(41),pts=[],y=170,i,s='';
+    for(i=0;i<=44;i++){y+=-1.6+(r()-.5)*14;y=Math.max(40,Math.min(190,y));pts.push([30+i*7.2,y])}
+    s+='<path d="'+pathOf(pts)+'L347 200L30 200Z" fill="#6fe0d6" fill-opacity=".1"/><path d="'+pathOf(pts)+'" fill="none" stroke="#6fe0d6" stroke-width="2.2"/>';
+    for(i=0;i<3;i++)s+='<rect x="372" y="'+(26+i*62)+'" width="84" height="52" rx="10" fill="#0e1f28" stroke="#1d3a46"/><rect x="384" y="'+(40+i*62)+'" width="40" height="7" rx="3.5" fill="#4a7a8a"/><rect x="384" y="'+(56+i*62)+'" width="58" height="12" rx="4" fill="'+(i===2?'#ee8a6a':'#6fe0d6')+'" fill-opacity=".75"/>';
+    return s},
+  accounts:function(){var s='<rect x="30" y="86" width="110" height="68" rx="12" fill="#0e1f28" stroke="#6fe0d6"/><rect x="46" y="104" width="50" height="8" rx="4" fill="#e4f2f4" fill-opacity=".8"/><rect x="46" y="122" width="78" height="7" rx="3.5" fill="#4a7a8a"/>';
+    [30,100,170].forEach(function(y,i){s+='<path d="M140 120C200 120 210 '+(y+22)+' 270 '+(y+22)+'" fill="none" stroke="#6fe0d6" stroke-width="1.6"/><rect x="270" y="'+y+'" width="170" height="44" rx="10" fill="#0e1f28" stroke="#1d3a46"/><circle cx="288" cy="'+(y+22)+'" r="4" fill="#6fe0d6" fill-opacity="'+(i===1?.5:.9)+'"/><rect x="304" y="'+(y+14)+'" width="'+(70+i*14)+'" height="7" rx="3.5" fill="#2a4a58"/><rect x="304" y="'+(y+27)+'" width="52" height="6" rx="3" fill="#4a7a8a"/>'});
+    return s},
+  ai:function(){var s='<rect x="30" y="28" width="210" height="40" rx="14" fill="#0e1f28" stroke="#1d3a46"/><rect x="46" y="44" width="120" height="8" rx="4" fill="#e4f2f4" fill-opacity=".8"/><rect x="110" y="84" width="236" height="54" rx="14" fill="#12323f" stroke="#6fe0d6" stroke-opacity=".5"/><rect x="126" y="100" width="170" height="7" rx="3.5" fill="#93b2bb"/><rect x="126" y="115" width="120" height="7" rx="3.5" fill="#93b2bb" fill-opacity=".6"/><rect x="30" y="154" width="150" height="40" rx="14" fill="#0e1f28" stroke="#1d3a46"/><rect x="46" y="170" width="90" height="8" rx="4" fill="#e4f2f4" fill-opacity=".8"/>';
+    [0,1,2,3].forEach(function(i){var x=368+(i%2)*46,y=36+Math.floor(i/2)*46;s+='<rect x="'+x+'" y="'+y+'" width="38" height="38" rx="9" fill="'+(i<2?'#12323f':'#0e1f28')+'" stroke="'+(i<2?'#6fe0d6':'#1d3a46')+'" stroke-opacity="'+(i<2?.8:1)+'"'+(i===3?' stroke-dasharray="3 3"':'')+'/>'});
+    return s},
+  sources:function(){var s='';
+    [40,95,150,205].forEach(function(y,i){s+='<path d="M120 '+y+'C190 '+y+' 190 120 240 120" fill="none" stroke="#4a7a8a" stroke-width="1.4"/><path d="M360 '+y+'C290 '+y+' 290 120 240 120" fill="none" stroke="#4a7a8a" stroke-width="1.4"/><circle cx="120" cy="'+y+'" r="5" fill="#6fe0d6"/><circle cx="360" cy="'+y+'" r="5" fill="'+(i===2?'#ee8a6a':'#6fe0d6')+'"/><rect x="40" y="'+(y-4)+'" width="'+(52+i*6)+'" height="8" rx="4" fill="#2a4a58"/><rect x="388" y="'+(y-4)+'" width="'+(52+((i+2)%4)*6)+'" height="8" rx="4" fill="#2a4a58"/>'});
+    s+='<circle cx="240" cy="120" r="26" fill="#6fe0d6" fill-opacity=".12" stroke="#6fe0d6" stroke-width="1.6"/><circle cx="240" cy="120" r="8" fill="#6fe0d6"/>';
+    return s}
+};
+function X(n,p,f){return {n:n,p:p,f:f}}
+function T(k,d,m,beta,fr,en){return {k:k,d:d,m:m,beta:beta,fr:fr,en:en}}
+var TABS=[
+ T('overview',1,'bars',false,
+  X('Vue d’ensemble','Un instantané des marchés, rafraîchi chaque minute.',['La performance de SPY, QQQ, DIA et IWM sur la journée, la semaine, le mois, l’année et au-delà.','Les onze secteurs, les indices américains et mondiaux, la crypto, les devises et les matières premières.','La courbe des taux américains, les plus grosses sociétés, les plus fortes hausses et baisses.','Un clic sur une action l’ouvre dans Research.']),
+  X('Overview','A snapshot of the markets, refreshed every minute.',['The performance of SPY, QQQ, DIA and IWM over the day, week, month, year and beyond.','The eleven sectors, US and global indices, crypto, currencies and commodities.','The US yield curve, the largest companies, the biggest gainers and losers.','A click on a stock opens it in Research.'])),
+ T('forex',1,'pairs',false,
+  X('Forex','Dix paires, leurs corrélations et la politique des banques centrales.',['Les sept paires majeures plus EUR/GBP, EUR/JPY et USD/CNY&nbsp;: prix, variation du jour, courbe de 90 jours.','Une matrice de corrélations sur 1, 3 et 6 mois et sur 1 an.','Les taux directeurs de neuf devises (BRI), avec le portage de chaque paire.','Le positionnement des grands acteurs, publié chaque semaine par la CFTC.']),
+  X('Forex','Ten pairs, their correlations and central bank policy.',['The seven major pairs plus EUR/GBP, EUR/JPY and USD/CNY: price, daily change, a 90-day curve.','A correlation matrix over 1, 3 and 6 months and 1 year.','Policy rates of nine currencies (BIS), with the carry of each pair.','The positioning of the big players, published weekly by the CFTC.'])),
+ T('calendar',1,'calendar',false,
+  X('Calendrier','Les chiffres qui sortent, ceux qui arrivent, et l’heure d’ouverture des marchés.',['Économique&nbsp;: les publications de 21 grandes économies et de la zone euro, avec le réel, le prévu, la surprise et le compte à rebours.','Entreprises&nbsp;: résultats, dividendes, scissions d’actions et introductions en Bourse aux États-Unis.','Horaires&nbsp;: 21 places boursières et 5 marchés de futures, ouverts, en pause ou fermés, en direct.','Tout s’affiche dans ton fuseau horaire.']),
+  X('Calendar','The figures coming out, the ones coming next, and when markets open.',['Economic: releases from 21 large economies and the euro area, with actual, forecast, surprise and countdown.','Corporate: earnings, dividends, stock splits and IPOs in the United States.','Hours: 21 stock exchanges and 5 futures markets, open, on break or closed, live.','Everything shows in your own time zone.'])),
+ T('news',1,'news',false,
+  X('News','Un fil d’actualité des marchés, avec un lecteur dans l’app.',['Général, actions, crypto, forex ou tes favoris, avec un filtre par symbole.','Un lecteur intégré ouvre l’article sans quitter DeepWater, avec un bloqueur de publicités (le moteur de Brave).','Une traduction des pages dans le lecteur, sur Mac.','Des flux gratuits fusionnés et dédoublonnés, ou une clé Financial Modeling Prep pour des articles étiquetés par symbole.']),
+  X('News','A market news wire, with a reader inside the app.',['General, stocks, crypto, forex or your favourites, with a symbol filter.','A built-in reader opens the article without leaving DeepWater, with an ad blocker (Brave’s engine).','Page translation in the reader, on Mac.','Free feeds merged and deduplicated, or a Financial Modeling Prep key for articles tagged by symbol.'])),
+ T('map',2,'globe',false,
+  X('Carte','Le monde sur un globe, pour voir les marchés par leurs routes et leurs pays.',['Pétroliers et cargos suivis en direct, avec la route maritime probable de chaque navire (clé gratuite d’aisstream.io).','Dix détroits et canaux surveillés&nbsp;: passages, tendances, historique.','24 indicateurs qui colorent chaque pays, à plat ou en relief 3D, et une carte des flux commerciaux.','Chaînes d’approvisionnement&nbsp;: ports, perturbations, stocks de pétrole, rendements agricoles, fret.','Une fiche par pays&nbsp;: secteurs, immobilier, dette, derniers chiffres officiels.']),
+  X('Map','The world on a globe, to see markets through their routes and countries.',['Tankers and cargo ships followed live, with each ship’s probable sea route (free aisstream.io key).','Ten straits and canals watched: passages, trends, history.','24 indicators that colour every country, flat or in 3D relief, and a map of trade flows.','Supply chains: ports, disruptions, oil stocks, crop yields, freight.','A sheet per country: sectors, housing, debt, latest official figures.'])),
+ T('economy',2,'dots',false,
+  X('Économie','Le tableau de bord macro, des États-Unis à environ 190 économies.',['Dix sections américaines&nbsp;: sentiment, croissance, inflation, emploi, taux, logement, consommation, liquidité et plus.','Environ 190 pays, avec douze thèmes de tableaux et l’historique de chaque série.','Le sens inverse&nbsp;: un indicateur, tous les pays, avec la prochaine publication.','La fusion de données&nbsp;: plusieurs sources pour un même chiffre, comparées puis rassemblées, avec la source de chaque point.','Une estimation du Fear &amp; Greed des actions, signalée comme estimation.']),
+  X('Economy','The macro dashboard, from the United States to about 190 economies.',['Ten US sections: sentiment, growth, inflation, jobs, rates, housing, consumer, liquidity and more.','About 190 countries, with twelve table themes and the history of each series.','The other way round: one indicator, every country, with the next release.','Data fusion: several sources for one figure, compared and merged, with the source of every point.','An estimate of the stock market Fear &amp; Greed, labelled as an estimate.'])),
+ T('research',2,'doc',false,
+  X('Research','Une entreprise à la fois, de son bilan à ses actionnaires.',['Quinze cartes de ratios, les états financiers et des graphiques tirés des dépôts de la SEC pour les sociétés américaines.','Actionnaires, ventes et achats des initiés, avis des analystes.','Une comparaison avec les pairs, le secteur ou tout le marché.','Les secteurs du S&amp;P 500, du Nasdaq-100 et du Dow, et environ 7 000 actions classées par industrie.','Les estimations faites par l’app (valeur intrinsèque, notes) sont marquées EXPERIMENTAL.']),
+  X('Research','One company at a time, from its balance sheet to its shareholders.',['Fifteen cards of ratios, the financial statements and charts drawn from SEC filings for US companies.','Shareholders, insider sales and purchases, analyst views.','A comparison with peers, the sector or the whole market.','The sectors of the S&amp;P 500, the Nasdaq-100 and the Dow, and about 7,000 stocks sorted by industry.','Estimates made by the app (intrinsic value, grades) are marked EXPERIMENTAL.'])),
+ T('quant',2,'curve',false,
+  X('Quant','Les outils d’un quant, dans l’app.',['Comparer jusqu’à huit titres, tester une paire (cointégration, demi-vie, signal), mesurer un bêta.','Le positionnement COT de 23 marchés, et un balayage de signaux sur 48 grandes actions.','Trois modèles de Markov&nbsp;: régimes cachés (HMM), volatilité à régimes (MS-GARCH) et exécution optimale d’un gros ordre.','Le risque d’un portefeuille&nbsp;: valeur à risque, perte attendue, simulation de Monte Carlo.']),
+  X('Quant','A quant’s tools, inside the app.',['Compare up to eight stocks, test a pair (cointegration, half-life, signal), measure a beta.','COT positioning for 23 markets, and a signal scan over 48 large stocks.','Three Markov models: hidden regimes (HMM), regime-switching volatility (MS-GARCH) and optimal execution of a large order.','A portfolio’s risk: value at risk, expected shortfall, Monte Carlo simulation.'])),
+ T('desk',2,'desk',false,
+  X('Desk','Seize lectures de trader, avec des règles écrites et visibles.',['109 instruments, la force des devises, les sessions de Sydney à New York, le résumé d’une séance.','Le chemin des taux de la Fed déduit des futures, les décisions des banques centrales, les courbes de taux.','Le positionnement de la foule, l’appétit pour le risque, la saisonnalité, les fondamentaux de chaque devise.','Les textes sont des règles fixes. Un bouton permet de demander à l’IA, qui lit alors la section elle-même.']),
+  X('Desk','Sixteen trader’s readings, with written, visible rules.',['109 instruments, currency strength, sessions from Sydney to New York, the recap of a session.','The Fed’s rate path read from futures, central bank decisions, yield curves.','Crowd positioning, risk appetite, seasonality, the fundamentals of each currency.','The texts are fixed rules. A button asks the AI, which then reads the section itself.'])),
+ T('charts',3,'candles',false,
+  X('Graphiques','Le terminal de graphiques, jusqu’au carnet d’ordres.',['87 indicateurs, des types de graphiques variés, des outils de dessin, des alertes, un rejeu de barres et un testeur de stratégies.','Footprint, Big Trades et carte de chaleur de liquidité sur les paires Binance&nbsp;: le carnet d’ordres dans le temps.','Des indicateurs en Pine Script (avec Node.js) ou en JavaScript.','Un compte de paper trading pour s’entraîner, et un terminal intégré à l’app.','Une API locale pour tes propres scripts.']),
+  X('Charts','The charting terminal, down to the order book.',['87 indicators, many chart types, drawing tools, alerts, a bar replay and a strategy tester.','Footprint, Big Trades and a liquidity heatmap on Binance pairs: the order book through time.','Indicators in Pine Script (with Node.js) or in JavaScript.','A paper trading account to practise, and a terminal built into the app.','A local API for your own scripts.'])),
+ T('journal',3,'journal',false,
+  X('Journal','Tes vrais trades, importés et mesurés.',['Il lit les relevés MetaTrader 4 et 5, les CSV cTrader et tout autre CSV, avec une fenêtre pour associer les colonnes.','Un tableau de bord, le journal des trades, des détails avancés et un calculateur de risque.','Aucune connexion à un courtier, aucun mot de passe demandé.','Tout reste sur ton ordinateur.']),
+  X('Journal','Your real trades, imported and measured.',['It reads MetaTrader 4 and 5 statements, cTrader CSVs and any other CSV, with a window to match the columns.','A dashboard, the trade log, advanced details and a risk calculator.','No broker connection, no password asked.','Everything stays on your computer.'])),
+ T('accounts',3,'accounts',true,
+  X('Comptes','Un ordre pour plusieurs comptes, dimensionné pour chacun.',['Il passe par MetaCopier, un service payant tiers qui garde les identifiants MetaTrader.','Chaque compte est dimensionné selon son propre solde. Un compte qui refuse n’arrête pas les autres.','Garde-fous&nbsp;: aucune nouvelle tentative, risque limité à 5 %, argent réel armé à la main par une saisie.','Écrit d’après la documentation de MetaCopier et testé contre un faux serveur&nbsp;: pas encore éprouvé sur un vrai compte. On commence par un compte de démonstration.','L’IA n’a aucun outil pour envoyer des ordres.']),
+  X('Accounts','One order for several accounts, sized for each one.',['It goes through MetaCopier, a paid third-party service that holds the MetaTrader logins.','Each account is sized from its own balance. An account that refuses does not stop the others.','Safeguards: no retries, risk capped at 5 %, real money armed by hand with a typed word.','Written from MetaCopier’s documentation and tested against a fake server: not yet proven on a real account. Start with a demo account.','The AI has no tool to send orders.'])),
+ T('ai',3,'ai',false,
+  X('IA','Des modèles qui tournent chez toi, avec des droits que tu règles.',['Des modèles locaux (llama.cpp) dans un bac à sable sans réseau, sur la carte graphique ou le processeur.','Un catalogue Hugging Face pour en télécharger, avec reprise et vérification d’empreinte. Les fichiers qui peuvent exécuter du code sont refusés.','Quatre emplacements qui donnent des droits&nbsp;: lire les données de l’app, s’entraîner en paper trading, ranger les espaces de travail.','Un panneau d’IA sur chaque page, la voix sur Mac (reconnaissance sur l’appareil), et un serveur local pour qu’opencode lise les données.','Un atelier d’apprentissage automatique en Python (scikit-learn, LightGBM, XGBoost, PyTorch) sur les données de l’app.']),
+  X('AI','Models that run at your place, with rights you set.',['Local models (llama.cpp) in a sandbox with no network, on the graphics card or the processor.','A Hugging Face catalogue to download from, with resume and checksum checks. Files that can run code are refused.','Four slots that grant rights: read the app’s data, practise on paper trading, tidy workspaces.','An AI panel on every page, voice on Mac (on-device recognition), and a local server so opencode can read the data.','A machine learning bench in Python (scikit-learn, LightGBM, XGBoost, PyTorch) on the app’s data.'])),
+ T('sources',3,'sources',false,
+  X('Sources','Chaque source, son état, et où va chaque chiffre.',['Une page liste chaque source&nbsp;: état, dernière mise à jour, bouton de test, interrupteur et clés d’API.','Un schéma montre quelles sources alimentent quelles parties de l’app, et ce que chaque IA peut atteindre.','134 fiches décrivent ce que chaque source contient et ce que l’app en lit.','Environ 1 300 organismes officiels sont listés, y compris ceux que l’app ne lit pas encore.']),
+  X('Sources','Every source, its state, and where each figure goes.',['A page lists every source: state, last update, test button, switch and API keys.','A diagram shows which sources feed which parts of the app, and what each AI can reach.','134 cards describe what each source holds and what the app reads of it.','About 1,300 official bodies are listed, including those the app does not read yet.']))
+];
+function groupName(d){return names()[d-1]}
+function renderTour(){
+  var L=lang==='en'?'en':'fr',html='',lastD=0;
+  TABS.forEach(function(t,i){
+    if(t.d!==lastD){lastD=t.d;html+='<div class="grp" aria-hidden="true">'+groupName(t.d)+'</div>'}
+    html+='<button type="button" role="tab" id="tab-'+t.k+'" aria-selected="'+(i===curTab)+'" aria-controls="pane" tabindex="'+(i===curTab?0:-1)+'" data-i="'+i+'"><span>'+t[L].n+'</span>'+(t.beta?' <span class="tg">'+(L==='en'?'In testing':'En test')+'</span>':'')+'</button>';
+  });
+  tabsEl.innerHTML=html;
+  tabsEl.setAttribute('aria-label',L==='en'?'DeepWater tabs':'Onglets de DeepWater');
+  paintTab(false);
+}
+function paintTab(animate){
+  var t=TABS[curTab],L=lang==='en'?'en':'fr',c=t[L];
+  $$('#tabs button').forEach(function(b){var on=Number(b.getAttribute('data-i'))===curTab;b.setAttribute('aria-selected',String(on));b.tabIndex=on?0:-1});
+  paneEl.setAttribute('aria-labelledby','tab-'+t.k);
+  ptEl.innerHTML='<p class="kicker">'+groupName(t.d)+'</p><h3>'+c.n+(t.beta?' <span class="tg">'+(L==='en'?'In testing':'En test')+'</span>':'')+'</h3><p class="pp">'+c.p+'</p><ul>'+c.f.map(function(x){return '<li>'+x+'</li>'}).join('')+'</ul>';
+  pvEl.innerHTML=MOTIF[t.m]();
+  if(animate&&!RM.matches){ptEl.classList.remove('swap');void ptEl.offsetWidth;ptEl.classList.add('swap')}
+}
+function buildTour(){
+  renderTour();tourReady=true;
+  tabsEl.addEventListener('click',function(e){
+    var b=e.target.closest?e.target.closest('button[data-i]'):null;if(!b)return;
+    curTab=Number(b.getAttribute('data-i'));paintTab(true);
+  });
+  tabsEl.addEventListener('keydown',function(e){
+    var k=e.key,d=0;
+    if(k==='ArrowDown'||k==='ArrowRight')d=1;else if(k==='ArrowUp'||k==='ArrowLeft')d=-1;else if(k==='Home')d=-curTab;else if(k==='End')d=TABS.length-1-curTab;else return;
+    e.preventDefault();
+    curTab=Math.max(0,Math.min(TABS.length-1,curTab+d));paintTab(true);
+    var b=$('#tabs button[data-i="'+curTab+'"]');if(b){b.focus()}
+  });
+}
+
 /* ---------- init ---------- */
-buildV1();buildV2();buildV3();buildMap();
+buildV1();buildV2();buildV3();buildMap();buildTour();
 $$('.lang button').forEach(function(b){b.addEventListener('click',function(){setLang(b.getAttribute('data-l'),true)})});
 var start='fr';
 try{var sv=localStorage.getItem(SK);if(sv==='fr'||sv==='en')start=sv;else if((navigator.language||'').toLowerCase().indexOf('fr')!==0&&(navigator.language||'').toLowerCase().indexOf('en')===0)start='en'}catch(e){}

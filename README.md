@@ -16,10 +16,13 @@ Puis ouvrir http://localhost:4173.
 
 - `index.html` : la page. Les textes français sont dans le HTML, les textes anglais dans le dictionnaire du script, en bas du fichier.
 - `assets/logo.svg` : l'icône de DeepWater, copiée de `resources/icon/deepwater.svg` dans le dépôt DeepWater.
+- `assets/og.png` : l'image (1200 x 630) qui s'affiche quand on partage le lien.
+
+La page couvre tout DeepWater : l'ouverture, la plongée (trois profondeurs), la visite des quatorze onglets, le globe, les sources et la fraîcheur des données, l'IA locale, l'application sur l'ordinateur, le code, les chiffres et les questions.
 
 ## Avant de la mettre en ligne
 
-- Remplacer les deux adresses `example.invalid` (`og:url` et `og:image`) à l'endroit marqué `DEPLOY STEP` dans `index.html`, puis ajouter l'image `assets/og.png` qu'elles annoncent.
+- Remplacer les deux adresses `example.invalid` (`og:url` et `og:image`) à l'endroit marqué `DEPLOY STEP` dans `index.html` par l'adresse réelle du site.
 - Les boutons Télécharger mènent à la page Releases du dépôt DeepWater : il faut y avoir publié une version pour qu'elle ne soit pas vide.
 
 ## Choix de conception
